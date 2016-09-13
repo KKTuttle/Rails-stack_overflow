@@ -1,10 +1,11 @@
 class QuestionsController<ApplicationController
-  before_filter :autorize, only: [:new, :create, :edit, :update]
+  before_filter :autorize, only: [:show]
+  before_filter :is_admin, [:index]
 
   def index
     @questions = Question.all
     @answers = Answer.all
-    # temporarily displays all answers on index page of  questions 
+    # temporarily displays all answers on index page of  questions
   end
 
   def show
