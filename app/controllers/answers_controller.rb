@@ -1,4 +1,8 @@
 class AnswersController<ApplicationController
+  def show
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+  end
 
   def new
     @question = Question.find(params[:question_id])
@@ -17,6 +21,30 @@ class AnswersController<ApplicationController
     end
   end
 
+  def edit
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    if @answer.update(answer_params)
+      flash[:notice] = "Thank you. The answer has been updated."
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    flash[:notice] = "Answer has been successfully deleted"
+    redirect_to question_path(@question)
+  end
+  
 private
   def answer_params
     params.require(:answer).permit(:content)

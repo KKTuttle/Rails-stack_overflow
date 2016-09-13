@@ -4,7 +4,7 @@
 
 <ul>
   <% @question.answers.each do |answer| %>
-    <li><%= answer.content %></li>
+    <li><%= link_to answer.content, question_answer_path(@question, answer)%></li>
   <%end%>
 
 </ul>

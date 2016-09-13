@@ -2,6 +2,7 @@
 
 <%=form_for [@question, @answer] do |f| %>
   <%= f.label :content, "Answer" %>
-  <%= f.text_field :content %>
+  <%= f.text_area :content %>
+  <!--trying text_area instead of text_field  -->
   <%= f.submit %>
 <%end%>
