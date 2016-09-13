@@ -1,0 +1,17 @@
+<h3><%= @question.content%></h3>
+
+<%= link_to "New Answer", new_question_answer_path(@question)%>
+
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.content %></li>
+  <%end%>
+
+</ul>
+
+
+<%= link_to "Edit Question", edit_question_path%>
+<%= link_to "Delete Question", questions_path%>
+
+
+<%= link_to "Return Home", questions_path %>

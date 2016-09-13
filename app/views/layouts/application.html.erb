@@ -19,11 +19,13 @@
           <%= link_to "Login", log_in_path %>
         <%end%>
       </div>
-
     </div>
+    <div class="container" style= 'border: 1px solid #000; padding: 19px; margin-top: 10px;'>
       <%= flash[:alert] %>
       <%= flash[:notice] %>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
+
   </body>
 </html>
