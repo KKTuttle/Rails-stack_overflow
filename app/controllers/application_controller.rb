@@ -6,6 +6,19 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def autorize
-    redirect_to log_in_path, alert: "Not autorized. Please log in and try it again..." if current_user.nil?
+    redirect_to log_in_path, alert: "Your are not logged in. Please login and try it again..." if current_user.nil?
   end
+
+  def is_admin
+    if current_user
+      if current_user.admin
+        flash[:alert] = 'You are admin'
+
+      else
+        flash[:alert] = 'You are not admin'
+      end
+      redirect_to root_url     
+    end
+  end
+
 end

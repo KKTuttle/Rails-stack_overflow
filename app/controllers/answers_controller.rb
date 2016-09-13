@@ -1,4 +1,6 @@
 class AnswersController<ApplicationController
+  before_filter :autorize, only: [:new, :create, :edit, :update]
+
   def show
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
@@ -44,7 +46,7 @@ class AnswersController<ApplicationController
     flash[:notice] = "Answer has been successfully deleted"
     redirect_to question_path(@question)
   end
-  
+
 private
   def answer_params
     params.require(:answer).permit(:content)

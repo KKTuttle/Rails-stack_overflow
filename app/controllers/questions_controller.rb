@@ -1,6 +1,6 @@
 class QuestionsController<ApplicationController
   before_filter :autorize, only: [:show]
-  before_filter :is_admin, [:index]
+  # before_filter :is_admin, only: [:index] with index it breaks too many connections
 
   def index
     @questions = Question.all
