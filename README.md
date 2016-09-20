@@ -1,7 +1,7 @@
 #  Stack Overclone
 ## *By Katarina Tuttle & Olivia Hinton*
 
-_A barebones clone of stack overflow - mainly focusing on admin priveleges, user authentication, and sorting and updating admin status._
+_A web application that allow users to create/ask questions and get the answers from other users._
 
 ## Technologies Used
 
